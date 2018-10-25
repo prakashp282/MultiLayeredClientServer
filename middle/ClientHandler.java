@@ -40,9 +40,15 @@ class ClientHandler extends Thread
             try { 
                 while (true)  
         {
-                //received = dis.readUTF(); 
+                received = dis.readUTF(); 
               //  System.out.println(received);
                 InterClient IC =new InterClient();
+                            String tosend="";
+                              while(!tosend.equals("FINISH")){
+                                    tosend=IC.Response();
+                                    dos.writeUTF(tosend); 
+                                    }
+
                 //String tosend=IC.action(received);
                 //dos.writeUTF(tosend); 
         }        
